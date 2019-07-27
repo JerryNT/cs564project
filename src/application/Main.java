@@ -27,7 +27,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-//sdfdsfsdf
 public class Main extends Application implements EventHandler<ActionEvent> {
 
     //scene #1
@@ -230,11 +229,11 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         title.setFont(Font.font("Verdana", 40));
         Thb.getChildren().add(title);
         bp.getChildren().addAll(Thb);
-        bp.setAlignment(Thb, Pos.CENTER);
+        bp.setTop(Thb);
         
         //My favorite, Hedonism and logout button by using Vbox
         VBox Vfb = new VBox();
-        //Vfb.setPadding(new Insets(100,100,0,250));
+
         
         Fav = new Button();
         Fav.setStyle("-fx-font-size:20");
@@ -256,52 +255,41 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Logout .setMinSize(150, 100);
         
         Vfb.getChildren().addAll(Fav, Hed, Logout);
-        Vfb.setAlignment(Pos.BASELINE_CENTER);
         bp.getChildren().add(Vfb);
-        bp.setAlignment(Vfb, Pos.BASELINE_LEFT);
+        bp.setLeft(Vfb);
         
         //Setting calories using Vbox 
         
         VBox calories = new VBox();
-        //calories.setPadding(new Insets(200,300,0,200));
         
         HBox CB1 = new HBox();
-        CB1.setPadding(new Insets(30,0,10,100));
         CheckBox cb1 = new CheckBox();
         cb1.setText("High(700 Kcal)");
         CB1.getChildren().add(cb1);
-        CB1.setAlignment(Pos.BASELINE_CENTER);
         
         HBox CB2 = new HBox();
-        CB2.setPadding(new Insets(30,50,10,100));
         CheckBox cb2 = new CheckBox();
         cb2.setText("Medium(500 Kcal)");
         CB2.getChildren().add(cb2);
-        CB2.setAlignment(Pos.BASELINE_CENTER);
         
         HBox CB3 = new HBox();
-        CB3.setPadding(new Insets(30,50,10,100));
         CheckBox cb3 = new CheckBox();
         cb3.setText("Low(300 Kcal)");
         CB3.getChildren().add(cb3);
-        CB3.setAlignment(Pos.BASELINE_CENTER);
         
         HBox sp = new HBox();
-        sp.setPadding(new Insets(30,50,10,100));
         Label spec = new Label("Specific: ");
         TextField Spec = new TextField(); 
         sp.getChildren().addAll(spec, Spec);
         sp.setSpacing(20);
-        sp.setAlignment(Pos.BASELINE_CENTER);
         
         HBox thb = new HBox();
         Text cal = new Text("Calories");
         thb.getChildren().add(cal);
         cal.setFont(Font.font("Verdana", 30));
-        thb.setPadding(new Insets(30,50,10,100));
         calories.getChildren().addAll(thb,CB1,CB2,CB3,sp);
         bp.getChildren().addAll(calories);
-        bp.setAlignment(calories, Pos.BASELINE_CENTER);
+        bp.setCenter(calories);
         
         
         //Setting another Vbox for lk and dislk
@@ -311,18 +299,14 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         HBox lk = new HBox();
         Label like = new Label("What specificly do you want: ");
         TextField Like = new TextField("Type in here");
-        lk.setPadding(new Insets(-200,100,0,0));
         lk.getChildren().addAll(like, Like);
-        lk.setAlignment(Pos.BASELINE_CENTER);
         
         
       //Inserting dislike 
         HBox dislk = new HBox();
         Label dislike = new Label("Is there anything you do not want: ");
         TextField Dislike = new TextField("Type in here");
-        dislk.setPadding(new Insets(-200,100,100,0));
         dislk.getChildren().addAll(dislike, Dislike);
-        dislk.setAlignment(Pos.BASELINE_CENTER);
         
         
         
@@ -330,21 +314,17 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Search = new Button();
         Search.setMinSize(500, 100);
         HBox search = new HBox();
-        search.setPadding(new Insets(50,0,0,-100));
-        search.setAlignment(Pos.BOTTOM_CENTER);
         Search.setText("Search");
         search.getChildren().add(Search);
         bp.getChildren().add(search);
-        bp.setAlignment(search, Pos.BOTTOM_CENTER);
-        
+        bp.setBottom(search);
         
         
         //putting those sub box into the general one
-        
         lkANDdislk.getChildren().addAll(lk,dislk);
         lkANDdislk.setAlignment(Pos.TOP_RIGHT);
         bp.getChildren().add(lkANDdislk);
-        bp.setAlignment(lkANDdislk, Pos.BASELINE_RIGHT);
+        bp.setRight(lkANDdislk);
         
         
       Scene InHealthnism = new Scene(bp,800,800);
@@ -367,6 +347,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
       title.setFont(Font.font("Verdana", 40));
       Thb.getChildren().add(title);
       gs.getChildren().add(Thb);
+      
       
       //My favorite, Healthnism and logout button by using Vbox
       VBox Vfb = new VBox();
@@ -394,36 +375,35 @@ public class Main extends Application implements EventHandler<ActionEvent> {
       Lgt.setOnAction(e->logoutButton(primaryStage));
       
       Vfb.getChildren().addAll(fav, Health, Lgt);
-      Vfb.setAlignment(Pos.BASELINE_LEFT);
+      Vfb.setAlignment(Pos.CENTER_LEFT);
       
       //Setting calories using Vbox 
       
       VBox calories = new VBox();
-      calories.setPadding(new Insets(-200, 0,0,-150));
       
       HBox CB1 = new HBox();
-      CB1.setPadding(new Insets(30,0,10,0));
+      //CB1.setPadding(new Insets(30,0,10,0));
       CheckBox cb1 = new CheckBox();
       cb1.setText("High(2500 Kcal)");
       CB1.getChildren().add(cb1);
       CB1.setAlignment(Pos.BASELINE_CENTER);
       
       HBox CB2 = new HBox();
-      CB2.setPadding(new Insets(30,0,10,0));
+      //CB2.setPadding(new Insets(30,0,10,0));
       CheckBox cb2 = new CheckBox();
       cb2.setText("Medium(2000 Kcal)");
       CB2.getChildren().add(cb2);
       CB2.setAlignment(Pos.BASELINE_CENTER);
       
       HBox CB3 = new HBox();
-      CB3.setPadding(new Insets(30,0,10,0));
+      //CB3.setPadding(new Insets(30,0,10,0));
       CheckBox cb3 = new CheckBox();
       cb3.setText("Low(1500 Kcal)");
       CB3.getChildren().add(cb3);
       CB3.setAlignment(Pos.BASELINE_CENTER);
       
       HBox sp = new HBox();
-      sp.setPadding(new Insets(10,0,10,0));
+      //sp.setPadding(new Insets(10,0,10,0));
       Label spec = new Label("Specific: ");
       TextField Spec = new TextField(); 
       sp.getChildren().addAll(spec, Spec);
@@ -442,7 +422,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
       HBox lk = new HBox();
       Label like = new Label("What specificly do you want: ");
       TextField Like = new TextField("Type in here");
-      lk.setPadding(new Insets(-200,100,0,0));
+      //lk.setPadding(new Insets(-200,100,0,0));
       lk.getChildren().addAll(like, Like);
       lk.setAlignment(Pos.CENTER_RIGHT);
       
@@ -451,7 +431,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
       HBox dislk = new HBox();
       Label dislike = new Label("Is there anything you do not want: ");
       TextField Dislike = new TextField("Type in here");
-      dislk.setPadding(new Insets(-200,100,100,0));
+      //dislk.setPadding(new Insets(-200,100,100,0));
       dislk.getChildren().addAll(dislike, Dislike);
       dislk.setAlignment(Pos.CENTER_RIGHT);
       
@@ -461,7 +441,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
       find = new Button();
       find.setMinSize(500, 100);
       HBox search = new HBox();
-      search.setPadding(new Insets(50,0,0,-100));
+      //search.setPadding(new Insets(50,0,0,-100));
       search.setAlignment(Pos.BOTTOM_CENTER);
       find.setText("Search");
       search.getChildren().add(find);
