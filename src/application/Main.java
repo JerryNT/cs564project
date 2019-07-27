@@ -144,7 +144,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         //putting loginVbox into root
         root.getChildren().add(loginVbox);
         
-        Scene loginScene = new Scene(root,800,800); // Set the layout to the scene
+        Scene loginScene = new Scene(root,1000,1000); // Set the layout to the scene
         primaryStage.setScene(loginScene);
         primaryStage.setResizable(true);
         primaryStage.show();
@@ -209,7 +209,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         
         
     
-        Scene Selection = new Scene(generalStructure,800,800);
+        Scene Selection = new Scene(generalStructure,1000,1000);
         primaryStage.setScene(Selection);
         primaryStage.setResizable(true);
         primaryStage.show();
@@ -228,7 +228,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Text title = new Text("Welcome to our healthnism recipes");
         title.setFont(Font.font("Verdana", 40));
         Thb.getChildren().add(title);
-        bp.getChildren().addAll(Thb);
+        //bp.getChildren().addAll(Thb);
         bp.setTop(Thb);
         
         //My favorite, Hedonism and logout button by using Vbox
@@ -255,7 +255,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Logout .setMinSize(150, 100);
         
         Vfb.getChildren().addAll(Fav, Hed, Logout);
-        bp.getChildren().add(Vfb);
+        Vfb.setPadding(new Insets(100,0,0,0));
         bp.setLeft(Vfb);
         
         //Setting calories using Vbox 
@@ -266,44 +266,49 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         CheckBox cb1 = new CheckBox();
         cb1.setText("High(700 Kcal)");
         CB1.getChildren().add(cb1);
+        CB1.setPadding(new Insets(50,0,0,0));
         
         HBox CB2 = new HBox();
         CheckBox cb2 = new CheckBox();
         cb2.setText("Medium(500 Kcal)");
         CB2.getChildren().add(cb2);
+        CB2.setPadding(new Insets(50,0,0,0));
         
         HBox CB3 = new HBox();
         CheckBox cb3 = new CheckBox();
         cb3.setText("Low(300 Kcal)");
         CB3.getChildren().add(cb3);
+        CB3.setPadding(new Insets(50,0,0,0));
         
         HBox sp = new HBox();
         Label spec = new Label("Specific: ");
         TextField Spec = new TextField(); 
         sp.getChildren().addAll(spec, Spec);
         sp.setSpacing(20);
+        sp.setPadding(new Insets(50,0,0,0));
+        
         
         HBox thb = new HBox();
         Text cal = new Text("Calories");
         thb.getChildren().add(cal);
         cal.setFont(Font.font("Verdana", 30));
         calories.getChildren().addAll(thb,CB1,CB2,CB3,sp);
-        bp.getChildren().addAll(calories);
+        calories.setPadding(new Insets(100,0,0,200));
         bp.setCenter(calories);
-        
         
         //Setting another Vbox for lk and dislk
         VBox lkANDdislk = new VBox();
         
         //Inserting like 
-        HBox lk = new HBox();
+        VBox lk = new VBox();
         Label like = new Label("What specificly do you want: ");
         TextField Like = new TextField("Type in here");
         lk.getChildren().addAll(like, Like);
+        lk.setPadding(new Insets(0,0,50,0));
         
         
       //Inserting dislike 
-        HBox dislk = new HBox();
+        VBox dislk = new VBox();
         Label dislike = new Label("Is there anything you do not want: ");
         TextField Dislike = new TextField("Type in here");
         dislk.getChildren().addAll(dislike, Dislike);
@@ -316,18 +321,17 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         HBox search = new HBox();
         Search.setText("Search");
         search.getChildren().add(Search);
-        bp.getChildren().add(search);
         bp.setBottom(search);
         
         
         //putting those sub box into the general one
         lkANDdislk.getChildren().addAll(lk,dislk);
-        lkANDdislk.setAlignment(Pos.TOP_RIGHT);
-        bp.getChildren().add(lkANDdislk);
+        lkANDdislk.setPadding(new Insets(100,50,0,0));
         bp.setRight(lkANDdislk);
+
         
         
-      Scene InHealthnism = new Scene(bp,800,800);
+      Scene InHealthnism = new Scene(bp,1000,1000);
       primaryStage.setScene(InHealthnism);
       primaryStage.setResizable(true);
       primaryStage.show();
